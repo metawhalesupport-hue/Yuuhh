@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>V-BOOST</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -16,14 +15,13 @@
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
-            /* Prevents iOS text size adjustment when orientation changes */
             -webkit-text-size-adjust: 100%;
         }
 
         html, body {
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Stops overall body bouncing/scrolling */
+            overflow: hidden;
             background-color: #f8f9fa;
         }
 
@@ -34,32 +32,29 @@
             align-items: center;
         }
 
-        /* Screen Wrapper (Locked to Mobile App Aspect Ratio & Fit Screen Perfectly) */
         .app-container {
             background: #ffffff;
             width: 100%;
             max-width: 420px;
-            height: 1002vh;
-            height: 100dvh; /* Dynamic viewport height to adjust for mobile browser bars */
+            height: 100vh;
+            height: 100dvh;
             position: relative;
             padding: 24px;
             display: flex;
             flex-direction: column;
-            overflow-y: auto; /* Only internal container will scroll if text overflows */
+            overflow-y: auto;
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
-        /* Desktop view enhancement while preserving mobile aspect ratio */
         @media (min-width: 421px) {
             .app-container {
                 height: 850px;
-                max-height: 90vh;
+                max-height: 95vh;
                 border-radius: 30px;
                 border: 1px solid #eef0f2;
             }
         }
 
-        /* Reusable Header Components */
         .header-row {
             display: flex;
             justify-content: space-between;
@@ -109,7 +104,6 @@
             height: 18px;
         }
 
-        /* Global UI Typography */
         .main-title {
             font-size: 26px;
             font-weight: 600;
@@ -126,7 +120,6 @@
             line-height: 1.4;
         }
 
-        /* Form Layout Elements */
         .input-group {
             margin-bottom: 24px;
             text-align: left;
@@ -145,7 +138,7 @@
             padding: 16px 20px;
             border: 1px solid #e5e7eb;
             border-radius: 25px;
-            font-size: 16px; /* Font size 16px or above safely stops iOS auto-zoom trigger */
+            font-size: 16px;
             color: #000000;
             outline: none;
             background: #ffffff;
@@ -155,7 +148,6 @@
             color: #9ca3af;
         }
 
-        /* Password Eye Toggle */
         .pass-wrapper {
             position: relative;
         }
@@ -178,7 +170,6 @@
             stroke-width: 1.8;
         }
 
-        /* Links & Buttons */
         .forgot-pass-container {
             text-align: right;
             margin-top: -12px;
@@ -222,7 +213,6 @@
             margin-left: 5px;
         }
 
-        /* Dropdown Styling */
         .select-wrapper {
             position: relative;
         }
@@ -253,7 +243,6 @@
             cursor: pointer;
         }
 
-        /* Textarea Formats */
         .textarea-box {
             width: 100%;
             padding: 18px 20px;
@@ -274,7 +263,6 @@
             margin-bottom: 24px;
         }
 
-        /* Attach Files Box */
         .attach-dashed-box {
             border: 1px solid #e5e7eb;
             border-radius: 20px;
@@ -299,7 +287,6 @@
             font-weight: 500;
         }
 
-        /* Checkbox Styling */
         .checkbox-container {
             display: flex;
             align-items: flex-start;
@@ -348,7 +335,6 @@
             text-decoration: none;
         }
 
-        /* Bottom Action Buttons */
         .bottom-action-row {
             display: flex;
             justify-content: space-between;
@@ -380,7 +366,6 @@
             cursor: pointer;
         }
 
-        /* Sign Up Page Button Colors */
         .signup-continue-btn {
             background-color: #ffcaa6; 
             color: #ffffff;
@@ -400,7 +385,6 @@
             background-color: #d62828 !important; 
         }
 
-        /* Loader Animation */
         .loader-screen-content {
             display: flex;
             flex-direction: column;
@@ -432,7 +416,6 @@
             font-weight: 500;
         }
 
-        /* View Control Layer */
         .app-view {
             display: none;
             flex-direction: column;
@@ -487,7 +470,7 @@
     <div id="view-login" class="app-view active-view">
         <div class="header-row">
             <div class="v-logo">V-BOOST</div>
-            <button type="button" class="support-btn-top trigger-support" onclick="window.navigateTo('view-support')">Support</button>
+            <button type="button" class="support-btn-top" onclick="window.navigateTo('view-support')">Support</button>
         </div>
         
         <h1 class="main-title" style="margin-top: 40px;">Welcome to V-Boost</h1>
@@ -510,17 +493,16 @@
             </div>
 
             <div class="forgot-pass-container">
-                <a href="#" class="forgot-pass-link" id="linkForgotPassword" onclick="event.preventDefault(); window.navigateTo('view-forgot')">Forgot password?</a>
+                <a href="#" class="forgot-pass-link" onclick="event.preventDefault(); window.navigateTo('view-forgot')">Forgot password?</a>
             </div>
 
             <button type="submit" class="action-submit-btn">Log in</button>
         </form>
 
         <p class="footer-switch-text" style="margin-top: auto;">
-            Do not have an account?<a href="#" id="linkSignUp" onclick="event.preventDefault(); window.navigateTo('view-signup')">Sign up</a>
+            Do not have an account?<a href="#" onclick="event.preventDefault(); window.navigateTo('view-signup')">Sign up</a>
         </p>
     </div>
-
 
     <div id="view-support" class="app-view">
         <div class="header-close-row">
@@ -528,7 +510,7 @@
         </div>
 
         <h1 class="main-title">Need any help?</h1>
-        <p class="sub-description" style="margin-bottom: 25px;">What issues are you facing with the platform? Please describe it and send a request. We will send our response to your email.</p>
+        <p class="sub-description" style="margin-bottom: 25px;">What issues are you facing with the platform? Please describe it and send a request.</p>
 
         <form id="supportForm" onsubmit="window.handleSupportSubmit(event)" style="display: flex; flex-direction: column; flex-grow: 1;">
             <div class="input-group">
@@ -551,7 +533,7 @@
             <div class="input-group">
                 <label>Description</label>
                 <textarea id="supportDesc" class="textarea-box" rows="4" placeholder="Problem description" required></textarea>
-                <p class="char-instruction-text">Minimum 50, maximum 1000 characters. Describe the problem in as much detail as possible. If possible, please add screenshots to help us resolve your issue faster.</p>
+                <p class="char-instruction-text">Minimum 50, maximum 1000 characters.</p>
             </div>
 
             <div class="input-group" style="margin-bottom: 20px;">
@@ -559,7 +541,6 @@
                 <div class="attach-dashed-box">
                     <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <p>Drag and drop or <span class="click-upload-span">Click to upload</span></p>
-                    <p style="font-size: 12px; margin-top: 5px;">JPG, PNG, PDF, LOG, TXT, MP4, MOV (total up to 30 MB)</p>
                 </div>
             </div>
 
@@ -570,11 +551,10 @@
         </form>
     </div>
 
-
     <div id="view-forgot" class="app-view">
         <div class="header-row">
             <div class="v-logo">V-BOOST</div>
-            <button type="button" class="support-btn-top trigger-support" onclick="window.navigateTo('view-support')">Support</button>
+            <button type="button" class="support-btn-top" onclick="window.navigateTo('view-support')">Support</button>
         </div>
 
         <button type="button" class="back-btn-row" onclick="window.navigateTo('view-login')">
@@ -591,16 +571,14 @@
                 <label>Email</label>
                 <input type="email" id="forgotEmail" class="input-box" placeholder="Email" required>
             </div>
-
             <button type="submit" class="signup-continue-btn active-dark-red" style="width: 55%; margin-top: 30px; background-color: #ff4545;">Continue</button>
         </form>
     </div>
 
-
     <div id="view-signup" class="app-view">
         <div class="header-row">
             <div class="v-logo">V-BOOST</div>
-            <button type="button" class="support-btn-top trigger-support" onclick="window.navigateTo('view-support')">Support</button>
+            <button type="button" class="support-btn-top" onclick="window.navigateTo('view-support')">Support</button>
         </div>
 
         <button type="button" class="back-btn-row" onclick="window.navigateTo('view-login')">
@@ -619,4 +597,25 @@
             <div class="input-group">
                 <label>Create password</label>
                 <div class="pass-wrapper">
-                    <input type="password" id="signupPassword" class=
+                    <input type="password" id="signupPassword" class="input-box" placeholder="Password" required oninput="window.validateSignupForm()">
+                    <div class="eye-toggle" onclick="window.togglePasswordVisibility('signupPassword')">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm password</label>
+                <div class="pass-wrapper">
+                    <input type="password" id="signupConfirm" class="input-box" placeholder="Password" required oninput="window.validateSignupForm()">
+                    <div class="eye-toggle" onclick="window.togglePasswordVisibility('signupConfirm')">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+            </div>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="signupCheck" required onchange="window.validateSignupForm()">
+                <div class="custom-check-box"></div>
+                <span class="checkbox-label-text">
+                
