@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Login + Save Test</title>
+</head>
+<body>
+
+<h2>Firebase Test Panel</h2>
+
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="signup()">Sign Up</button>
+<button onclick="login()">Login</button>
+
+<hr>
+
+<h3>Save Data Test</h3>
+<input type="text" id="data" placeholder="Write something"><br><br>
+<button onclick="saveData()">Save to Firestore</button>
+
+<p id="status"></p>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { 
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+
+// 🔥 YOUR CONFIG (added)
+const firebaseConfig = {
+  apiKey: "AIzaSyDelFqnvF1eg6Cl18Zc-8Z8EgE9vsg-laY",
+  authDomain: "v-boost-website.firebaseapp.com",
+  projectId: "v-boost-website",
+  storageBucket: "v-boost-website.firebasestorage.app",
+  messagingSenderId: "50442414127",
+  appId: "1:50442414127:web:00db67e99afed8d2803eda"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+// 👉 Signup
+window.signup = async function () {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    document.getElementById("status").innerText = "Signup Success ✔️";
+  } catch (e) {
+    document.getElementById("status").innerText = e.message;
+  }
+}
+
+
+// 👉 Login
+window.login = async function () {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    document.getElementById("status").innerText = "Login Success ✔️";
+  } catch (e) {
+    document.getElementById("status").innerText = e.message;
+  }
+}
+
+
+// 👉 Save data to Firestore
+window.saveData = async function () {
+  let text = document.getElementById("data").value;
+
+  try {
+    await addDoc(collection(db, "testData"), {
+      text: text,
+      time: new Date()
+    });
+
+    document.getElementById("status").innerText = "Data Saved ✔️ (Firestore working)";
+  } catch (e) {
+    document.getElementById("status").innerText = e.message;
+  }
+}
+
+</script>
+
+</body>
+  </html>
