@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-BOOST | Gamified Partner Program</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>V-BOOST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -14,26 +14,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        :root {
-            --bg-black: #000000;
-            --bg-dark-grey: #0b0b0c;
-            --bg-card-glass: #121214;
-            --accent-red: #e51937;
-            --accent-red-hover: #ff1e3d;
-            --text-pure-white: #ffffff;
-            --text-dim-grey: #8e8e93;
-            --text-paragraph: #a1a1a6;
-            --border-glass: rgba(255, 255, 255, 0.08);
-        }
-
         body {
-            background-color: var(--bg-black);
-            color: var(--text-pure-white);
+            background-color: #000000;
+            color: #ffffff;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        /* Fixed Navigation Header */
+        /* Top Header Navigation */
         header {
             position: fixed;
             top: 0;
@@ -44,22 +31,20 @@
             align-items: center;
             padding: 24px 20px;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+            backdrop-filter: blur(8px);
         }
 
-        .brand-logo {
+        .logo {
             font-size: 22px;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--text-pure-white);
+            color: #ffffff;
         }
 
-        .header-menu-btn {
-            width: 42px;
-            height: 42px;
-            background: rgba(255, 255, 255, 0.06);
+        .menu-icon-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -67,974 +52,568 @@
             align-items: center;
             gap: 5px;
             cursor: pointer;
-            transition: 0.2s ease;
-            border: 1px solid var(--border-glass);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .header-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-
-        .header-menu-btn span {
+        .menu-icon-btn span {
             width: 16px;
             height: 1.5px;
-            background-color: var(--text-pure-white);
-            border-radius: 1px;
+            background-color: #ffffff;
         }
 
-        /* Hero Layout Container */
-        .hero-viewport {
-            position: relative;
-            min-height: 92vh;
+        /* Hero Main Viewport */
+        .hero-section {
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 140px 20px 40px 20px;
-            background: radial-gradient(circle at 50% 25%, #2a050a 0%, #000000 65%);
-            overflow: hidden;
+            padding: 120px 20px 40px 20px;
+            background: radial-gradient(circle at 50% 20%, #260408 0%, #000000 60%);
         }
 
-        .hero-main-title {
-            font-size: 38px;
+        .hero-title {
+            font-size: 36px;
             font-weight: 800;
             line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 18px;
-            max-width: 90%;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
         }
 
-        .hero-main-title span {
-            color: var(--accent-red);
+        .hero-title span {
+            color: #e51937;
         }
 
-        .hero-desc-para {
+        .hero-subtitle {
             font-size: 15px;
-            color: var(--text-dim-grey);
+            color: #8e8e93;
             line-height: 1.5;
-            margin-bottom: 35px;
-            max-width: 95%;
+            margin-bottom: 32px;
         }
 
-        .action-btn-red {
+        .btn-action-red {
             display: inline-block;
-            background-color: var(--accent-red);
-            color: var(--text-pure-white);
+            background-color: #e51937;
+            color: #ffffff;
             padding: 14px 32px;
             border-radius: 25px;
             font-size: 15px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.25s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(229, 25, 55, 0.35);
             text-align: center;
+            box-shadow: 0 4px 15px rgba(229, 25, 55, 0.3);
         }
 
-        .action-btn-red:hover {
-            background-color: var(--accent-red-hover);
-            transform: translateY(-1px);
+        /* Content Blocks */
+        .section-layout {
+            padding: 50px 20px;
         }
 
-        /* Visual Graphic Stack representation for floating items */
-        .hero-visual-graphic-layer {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 40%;
-            pointer-events: none;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            opacity: 0.85;
-        }
-
-        .stacked-red-coin {
-            position: absolute;
-            background: linear-gradient(135deg, #e51937, #7a000e);
-            border: 2px solid #ff5e75;
-            border-radius: 50%;
-            width: 130px;
-            height: 130px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            font-weight: 900;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 2px 8px rgba(255,255,255,0.3);
-        }
-
-        .coin-pos-a { bottom: 20px; left: 15%; transform: rotate(-12deg); z-index: 2; }
-        .coin-pos-b { bottom: -10px; left: 42%; transform: rotate(8deg); width: 145px; height: 145px; z-index: 3; }
-        .coin-pos-c { bottom: 35px; right: 12%; transform: rotate(22deg); z-index: 1; }
-
-        /* Structure Section Content Blocks */
-        .content-block-section {
-            padding: 55px 20px;
-        }
-
-        .section-headline {
+        .section-title-text {
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 22px;
-            letter-spacing: -0.5px;
+            margin-bottom: 20px;
         }
 
-        /* Grid Rows Mapping */
-        .grid-cards-stack {
+        .cards-list-wrapper {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .benefit-row-card {
-            background-color: var(--bg-card-glass);
-            border: 1px solid var(--border-glass);
+        .feature-row-item {
+            background-color: #121214;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 14px;
             padding: 20px;
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
         }
 
-        .benefit-circle-icon {
-            width: 44px;
-            height: 44px;
+        .feature-icon-circle {
+            width: 42px;
+            height: 42px;
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .benefit-circle-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--accent-red);
+        .feature-icon-circle svg {
+            width: 18px;
+            height: 18px;
+            fill: #e51937;
         }
 
-        .benefit-card-text {
+        .feature-item-desc {
             font-size: 14px;
-            color: var(--text-pure-white);
+            color: #ffffff;
             font-weight: 500;
             line-height: 1.4;
         }
 
-        /* Text Block Module Style */
-        .product-brief-card {
-            background-color: var(--bg-dark-grey);
-            border-radius: 20px;
-            padding: 30px 20px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .brief-paragraph {
-            font-size: 14px;
-            color: var(--text-paragraph);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        /* Sequence Tracking Blocks */
-        .sequence-card-container {
-            background-color: var(--bg-card-glass);
-            border: 1px solid var(--border-glass);
+        /* Product Description Panel */
+        .product-about-box {
+            background-color: #0b0b0c;
             border-radius: 18px;
-            padding: 22px;
+            padding: 28px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .product-about-text {
+            font-size: 14px;
+            color: #a1a1a6;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        /* Step Sequence Matrix */
+        .step-row-container {
+            background-color: #121214;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px;
             margin-bottom: 12px;
             position: relative;
         }
 
-        .sequence-header-meta {
+        .step-meta-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .sequence-label-title {
+        .step-title-lbl {
             font-size: 18px;
             font-weight: 600;
         }
 
-        .sequence-index-id {
-            font-size: 38px;
+        .step-num-id {
+            font-size: 36px;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.03);
             line-height: 1;
         }
 
-        /* 3D Tier Layers Display Block For Step 02 */
-        .css-deck-layers-display {
-            width: 100%;
-            height: 120px;
-            margin-top: 20px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .deck-vector-layer {
-            position: absolute;
-            width: 160px;
-            height: 36px;
-            background: linear-gradient(135deg, #222, #111);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            transform: perspective(300px) rotateX(55deg);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-        }
-
-        .layer-index-top { top: 10px; z-index: 3; background: linear-gradient(135deg, var(--accent-red), #800); border-color: #ff4d66; }
-        .layer-index-mid { top: 32px; z-index: 2; opacity: 0.75; }
-        .layer-index-low { top: 54px; z-index: 1; opacity: 0.5; }
-
-        /* General Module Card Frameworks */
-        .module-item-box {
-            background-color: var(--bg-card-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 28px 20px;
-            margin-bottom: 16px;
+        /* Component Framework Cards */
+        .component-item-card {
+            background-color: #121214;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 26px 20px;
+            margin-bottom: 14px;
             position: relative;
         }
 
-        .module-pill-badge {
+        .pill-coming-soon {
             position: absolute;
             top: 24px;
             right: 20px;
-            background-color: rgba(255, 255, 255, 0.07);
-            color: var(--text-pure-white);
-            padding: 5px 10px;
-            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 10px;
             font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .module-item-box h4 {
-            font-size: 20px;
+        .component-item-card h4 {
+            font-size: 19px;
             font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .module-bullet-list {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .module-bullet-list li {
-            position: relative;
-            padding-left: 18px;
             margin-bottom: 10px;
-            font-size: 13.5px;
-            color: var(--text-paragraph);
-            line-height: 1.5;
         }
 
-        .module-bullet-list li::before {
+        .bullet-list-structure {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .bullet-list-structure li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 8px;
+            font-size: 13.5px;
+            color: #a1a1a6;
+            line-height: 1.4;
+        }
+
+        .bullet-list-structure li::before {
             content: "•";
             position: absolute;
             left: 0;
-            color: var(--accent-red);
-            font-size: 16px;
-            top: -1px;
+            color: #e51937;
+            font-size: 15px;
         }
 
-        /* Padlock Vector Implementation via CSS CSS */
-        .padlock-vector-canvas {
-            width: 100%;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .padlock-base-body {
-            width: 52px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--accent-red), #8a0514);
-            border-radius: 6px;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(229, 25, 55, 0.25);
-        }
-
-        .padlock-base-body::before {
-            content: "";
-            position: absolute;
-            width: 34px;
-            height: 32px;
-            border: 4.5px solid var(--accent-red);
-            border-bottom: none;
-            border-radius: 18px 18px 0 0;
-            top: -26px;
-            left: 9px;
-            box-sizing: border-box;
-        }
-
-        /* Global Footer UI Layout */
+        /* Universal Sticky Footer */
         footer {
-            background-color: #040405;
-            border-top: 1px solid var(--border-glass);
-            padding: 50px 20px 24px 20px;
+            background-color: #000000;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 45px 20px 24px 20px;
             text-align: center;
         }
 
-        .footer-brand-title {
+        .footer-brand {
             font-size: 24px;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        .footer-social-row {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-
-        .footer-social-circle {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-pure-white);
-            text-decoration: none;
-            font-size: 14px;
-            border: 1px solid var(--border-glass);
-        }
-
-        .footer-nav-links {
+        .footer-links-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 18px;
-            margin-bottom: 35px;
+            gap: 16px;
+            margin-bottom: 30px;
         }
 
-        .footer-nav-links a {
-            color: var(--text-dim-grey);
+        .footer-links-row a {
+            color: #8e8e93;
             text-decoration: none;
             font-size: 13.5px;
-            transition: color 0.2s;
         }
 
-        .footer-nav-links a:hover {
-            color: var(--text-pure-white);
-        }
-
-        .footer-copyright-note {
+        .copyright-lbl {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.25);
-            margin-bottom: 4px;
+            color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Fixed Support Handle Launcher Option */
-        .support-launcher-anchor {
+        /* Fixed Support Access Button Link */
+        .btn-fixed-support {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background-color: #1c1c1e;
-            border: 1px solid var(--border-glass);
-            color: var(--text-pure-white);
-            padding: 10px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            padding: 10px 16px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
             z-index: 900;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
         /* ========================================================================= */
-        /* ======================== FIXED STRUCTURAL POPUPS ======================== */
+        /* ============================ MODAL FRAME POPUPS ========================== */
         /* ========================================================================= */
-        .popup-window-dimmer {
+        .modal-view-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 2000;
             display: none;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.25s ease;
             padding: 16px;
             overflow-y: auto;
         }
 
-        .popup-window-dimmer.is-visible {
+        .modal-view-overlay.is-open {
             display: flex;
-            opacity: 1;
         }
 
-        .popup-frame-box {
+        .modal-content-panel {
             background-color: #0d0d0f;
-            border: 1px solid var(--border-glass);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             width: 100%;
-            max-width: 410px;
-            border-radius: 24px;
-            padding: 30px 20px;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 28px 20px;
             position: relative;
-            transform: scale(0.96);
-            transition: transform 0.25s ease;
         }
 
-        .popup-window-dimmer.is-visible .popup-frame-box {
-            transform: scale(1);
-        }
-
-        .popup-close-trigger {
+        .modal-close-btn {
             position: absolute;
-            top: 22px;
+            top: 20px;
             right: 20px;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .popup-header-title {
-            font-size: 22px;
+        .modal-main-title {
+            font-size: 21px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 6px;
         }
 
-        .popup-header-subtitle {
-            font-size: 13.5px;
-            color: var(--text-dim-grey);
+        .modal-sub-title {
+            font-size: 13px;
+            color: #8e8e93;
             text-align: center;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
-        /* System Form Controls Matching Video Matrix */
-        .form-input-block {
-            margin-bottom: 18px;
+        /* Input Controls Layout Configuration */
+        .form-row-node {
+            margin-bottom: 16px;
             position: relative;
         }
 
-        .form-input-block label {
+        .form-row-node label {
             display: block;
             font-size: 12.5px;
-            font-weight: 500;
             margin-bottom: 6px;
-            color: var(--text-paragraph);
+            color: #a1a1a6;
         }
 
-        .form-field-element {
+        .input-element-field {
             width: 100%;
             background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-glass);
-            padding: 13px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 14px;
             border-radius: 10px;
-            color: var(--text-pure-white);
-            font-size: 14.5px;
-            transition: border-color 0.2s;
-        }
-
-        .form-field-element:focus {
-            outline: none;
-            border-color: var(--accent-red);
-        }
-
-        .field-visibility-mask-toggle {
-            position: absolute;
-            right: 15px;
-            top: 36px;
-            cursor: pointer;
-            color: var(--text-dim-grey);
+            color: #ffffff;
             font-size: 14px;
-            user-select: none;
         }
 
-        .form-auxiliary-link {
+        .input-element-field:focus {
+            outline: none;
+            border-color: #e51937;
+        }
+
+        .mask-toggle-trigger {
+            position: absolute;
+            right: 14px;
+            top: 34px;
+            cursor: pointer;
+            color: #8e8e93;
+            font-size: 14px;
+        }
+
+        .form-link-anchor {
             display: block;
             text-align: right;
             font-size: 12.5px;
-            color: var(--accent-red);
+            color: #e51937;
             text-decoration: none;
-            margin-top: -8px;
-            margin-bottom: 22px;
+            margin-top: -6px;
+            margin-bottom: 20px;
         }
 
-        .form-switch-prompt-footer {
+        .form-footer-switch-prompt {
             text-align: center;
-            font-size: 13.5px;
-            color: var(--text-dim-grey);
-            margin-top: 20px;
+            font-size: 13px;
+            color: #8e8e93;
+            margin-top: 18px;
         }
 
-        .form-switch-prompt-footer span {
-            color: var(--accent-red);
+        .form-footer-switch-prompt span {
+            color: #e51937;
             cursor: pointer;
-            font-weight: 500;
         }
 
-        /* Explicit Pass Criteria Layout Blocks */
-        .pass-criteria-box {
+        /* Registration Password Condition List Block */
+        .pass-check-list {
             list-style: none;
-            margin: 14px 0;
+            margin: 12px 0;
         }
 
-        .pass-criteria-row-item {
+        .pass-check-item {
             font-size: 12px;
-            color: var(--text-dim-grey);
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: #8e8e93;
+            margin-bottom: 4px;
         }
 
-        .pass-criteria-row-item::before {
-            content: "•";
-            color: var(--text-dim-grey);
-        }
-
-        /* Consent Policy Framework Options */
-        .policy-checkbox-block {
+        .consent-checkbox-wrapper {
             display: flex;
             align-items: flex-start;
-            gap: 9px;
-            margin-bottom: 22px;
-            font-size: 12.5px;
-            color: var(--text-dim-grey);
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #8e8e93;
             line-height: 1.4;
         }
 
-        .policy-checkbox-block input {
-            margin-top: 2px;
-        }
-
-        /* Top Fixed Menu Panel Navigation Overlay Matrix */
-        .overlay-nav-menu-panel {
+        /* Drawer Sliding Navigation Overlay Option */
+        .drawer-nav-panel-view {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--bg-black);
+            background-color: #000000;
             z-index: 1500;
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 30px;
+            padding: 24px;
         }
 
-        .overlay-nav-menu-panel.is-active {
+        .drawer-nav-panel-view.is-active {
             display: flex;
         }
 
-        .overlay-menu-items-list {
+        .drawer-links-stack {
             list-style: none;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        .overlay-menu-items-list li {
-            margin-bottom: 20px;
-        }
-
-        .overlay-menu-items-list a {
-            font-size: 26px;
-            font-weight: 600;
-            color: var(--text-dim-grey);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .overlay-menu-items-list a:hover {
-            color: var(--text-pure-white);
-        }
-
-        /* Drop box framework upload module */
-        .drag-drop-zone-area {
-            border: 2px dashed var(--border-glass);
-            border-radius: 14px;
-            padding: 22px;
-            text-align: center;
-            cursor: pointer;
-            color: var(--text-dim-grey);
-            font-size: 12.5px;
+        .drawer-links-stack li {
             margin-bottom: 18px;
         }
 
-        .drag-drop-zone-area:hover {
-            border-color: var(--accent-red);
+        .drawer-links-stack a {
+            font-size: 24px;
+            font-weight: 600;
+            color: #8e8e93;
+            text-decoration: none;
+        }
+
+        /* Drop box files handling layout area */
+        .file-drop-target-area {
+            border: 2px dashed rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            color: #8e8e93;
+            font-size: 12px;
+            margin-bottom: 16px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand-logo">V-BOOST</div>
-        <div class="header-menu-btn" onclick="toggleNavigationMenuPanel(true)">
+        <div class="logo">V-BOOST</div>
+        <div class="menu-icon-btn" onclick="toggleMainDrawerMenuPanel(true)">
             <span></span>
             <span></span>
         </div>
     </header>
 
-    <button class="support-launcher-anchor" onclick="triggerPopupView('supportPopupFrame')">Support</button>
+    <button class="btn-fixed-support" onclick="openTargetModalView('supportOverlayBlock')">Support</button>
 
-    <section class="hero-viewport">
-        <div class="hero-main-title">A Next-Generation <span>Gamified</span> Partner Program</div>
-        <p class="hero-desc-para">Grow your structure, receive participation rewards, and manage your digital position seamlessly inside the decentralized node layer matrix system.</p>
+    <section class="hero-section">
+        <div class="hero-title">A Next-Generation <span>Gamified</span> Partner Program</div>
+        <p class="hero-subtitle">Grow your structure, receive participation rewards, and manage your digital position seamlessly inside the decentralized node layer matrix system.</p>
         <div>
-            <button class="action-btn-red" onclick="triggerPopupView('loginPopupFrame')">Learn More</button>
-        </div>
-        
-        <div class="hero-visual-graphic-layer">
-            <div class="stacked-red-coin coin-pos-a">B</div>
-            <div class="stacked-red-coin coin-pos-b">B</div>
-            <div class="stacked-red-coin coin-pos-c">B</div>
+            <button class="btn-action-red" onclick="openTargetModalView('loginOverlayBlock')">Learn More</button>
         </div>
     </section>
 
-    <section class="content-block-section">
-        <div class="section-headline">Unlike traditional systems:</div>
-        <div class="grid-cards-stack">
+    <section class="section-layout">
+        <div class="section-title-text">Unlike traditional systems:</div>
+        <div class="cards-list-wrapper">
             
-            <div class="benefit-row-card">
-                <div class="benefit-circle-icon">
+            <div class="feature-row-item">
+                <div class="feature-icon-circle">
                     <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5 0.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
                 </div>
-                <div class="benefit-card-text">Digital item: an NFT position in your web3 wallet secure node.</div>
+                <div class="feature-item-desc">Digital item: an NFT position in your web3 wallet secure node.</div>
             </div>
 
-            <div class="benefit-row-card">
-                <div class="benefit-circle-icon">
+            <div class="feature-row-item">
+                <div class="feature-icon-circle">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
                 </div>
-                <div class="benefit-card-text">Step-by-step growth: ultra progress metrics and level multipliers.</div>
+                <div class="feature-item-desc">Step-by-step growth: ultra progress metrics and level multipliers.</div>
             </div>
 
-            <div class="benefit-row-card">
-                <div class="benefit-circle-icon">
+            <div class="feature-row-item">
+                <div class="feature-icon-circle">
                     <svg viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
                 </div>
-                <div class="benefit-card-text">Auto-upgrade structure and auto-reactivation system matrices.</div>
+                <div class="feature-item-desc">Auto-upgrade structure and auto-reactivation system matrices.</div>
             </div>
 
-            <div class="benefit-row-card">
-                <div class="benefit-circle-icon">
+            <div class="feature-row-item">
+                <div class="feature-icon-circle">
                     <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                 </div>
-                <div class="benefit-card-text">Trade program NFTs directly on the V-Place NFT Marketplace.</div>
+                <div class="feature-item-desc">Trade program NFTs directly on the V-Place NFT Marketplace.</div>
             </div>
 
         </div>
     </section>
 
-    <section class="content-block-section" style="background-color: #060607;">
-        <div class="product-brief-card">
-            <div class="section-headline">About the Product</div>
-            <p class="brief-paragraph">V-Boost is a comprehensive next-generation gamified partner program environment where every digital tier position is managed safely via secure cryptography nodes.</p>
-            <button class="action-btn-red" style="padding: 11px 26px; font-size: 14px;" onclick="triggerPopupView('signUpPopupFrame')">Explore</button>
+    <section class="section-layout" style="background-color: #050506;">
+        <div class="product-about-box">
+            <div class="section-title-text">About the Product</div>
+            <p class="product-about-text">V-Boost is a comprehensive next-generation gamified partner program environment where every digital tier position is managed safely via secure cryptography nodes.</p>
+            <button class="btn-action-red" style="padding: 10px 24px; font-size: 14px;" onclick="openTargetModalView('signUpOverlayBlock')">Explore</button>
         </div>
     </section>
 
-    <section class="content-block-section">
-        <div class="section-headline" style="margin-bottom: 26px;">Simple Path from Entry to your NFT Position</div>
+    <section class="section-layout">
+        <div class="section-title-text" style="margin-bottom: 24px;">Simple Path from Entry to your NFT Position</div>
         
-        <div class="sequence-card-container">
-            <div class="sequence-header-meta">
-                <div class="sequence-label-title">Position Creation</div>
-                <div class="sequence-index-id">01</div>
+        <div class="step-row-container">
+            <div class="step-meta-flex">
+                <div class="step-title-lbl">Position Creation</div>
+                <div class="step-num-id">01</div>
             </div>
-            <p class="brief-paragraph" style="margin: 0;">Establish your digital identity credentials across the core system decentralized registers.</p>
+            <p class="product-about-text" style="margin: 0;">Establish your digital identity credentials across the core system decentralized registers.</p>
         </div>
 
-        <div class="sequence-card-container">
-            <div class="sequence-header-meta">
-                <div class="sequence-label-title">Tier Activation</div>
-                <div class="sequence-index-id">02</div>
+        <div class="step-row-container">
+            <div class="step-meta-flex">
+                <div class="step-title-lbl">Tier Activation</div>
+                <div class="step-num-id">02</div>
             </div>
-            <p class="brief-paragraph" style="margin: 0;">Activate tiers directly to initiate standard protocol participation pools.</p>
-            
-            <div class="css-deck-layers-display">
-                <div class="deck-vector-layer layer-index-low"></div>
-                <div class="deck-vector-layer layer-index-mid"></div>
-                <div class="deck-vector-layer layer-index-top"></div>
-            </div>
+            <p class="product-about-text" style="margin: 0;">Activate tiers directly to initiate standard protocol participation pools.</p>
         </div>
 
-        <div class="sequence-card-container">
-            <div class="sequence-header-meta">
-                <div class="sequence-label-title">Rewards Distribution</div>
-                <div class="sequence-index-id">03</div>
+        <div class="step-row-container">
+            <div class="step-meta-flex">
+                <div class="step-title-lbl">Rewards Distribution</div>
+                <div class="step-num-id">03</div>
             </div>
-            <p class="brief-paragraph" style="margin: 0;">Automated processing rules distribute system participation weights periodically.</p>
+            <p class="product-about-text" style="margin: 0;">Automated processing rules distribute system participation weights periodically.</p>
         </div>
 
-        <div class="sequence-card-container">
-            <div class="sequence-header-meta">
-                <div class="sequence-label-title">Team Growth & Rewards</div>
-                <div class="sequence-index-id">04</div>
+        <div class="step-row-container">
+            <div class="step-meta-flex">
+                <div class="step-title-lbl">Team Growth & Rewards</div>
+                <div class="step-num-id">04</div>
             </div>
-            <p class="brief-paragraph" style="margin: 0;">Expand networking operations to scale structural performance levels recursively.</p>
+            <p class="product-about-text" style="margin: 0;">Expand networking operations to scale structural performance levels recursively.</p>
         </div>
     </section>
 
-    <section class="content-block-section" style="background-color: #070708;">
-        <div class="section-headline">V-Boost Components</div>
-        <p class="brief-paragraph" style="margin-bottom: 26px;">Review the functional modular building blocks powering the core execution frameworks.</p>
+    <section class="section-layout" style="background-color: #050506;">
+        <div class="section-title-text">V-Boost Components</div>
+        <p class="product-about-text" style="margin-bottom: 24px;">Review the functional modular building blocks powering the core execution frameworks.</p>
 
-        <div class="module-item-box">
+        <div class="component-item-card">
             <h4>VGF Matrix Credits</h4>
-            <p class="brief-paragraph" style="margin: 0;">Internal accounting layer standard units used across all processing levels to measure access velocity thresholds inside tiers.</p>
+            <p class="product-about-text" style="margin: 0;">Internal accounting layer standard units used across all processing levels to measure access velocity thresholds inside tiers.</p>
         </div>
 
-        <div class="module-item-box">
-            <div class="module-pill-badge">Coming Soon</div>
+        <div class="component-item-card">
+            <div class="pill-coming-soon">Coming Soon</div>
             <h4>V-Boost Marketplace</h4>
-            <ul class="module-bullet-list">
+            <ul class="bullet-list-structure">
                 <li>Manage custom NFTs linked to ecosystem operational velocity tracks.</li>
                 <li>Transfer items seamlessly within regional environment zones.</li>
                 <li>Access distributed peer networks with advanced clarity.</li>
             </ul>
         </div>
 
-        <div class="module-item-box">
+        <div class="component-item-card">
             <h4>Control & Trust Infrastructure</h4>
-            <p class="brief-paragraph" style="margin-bottom: 8px;">Your positions remain autonomously mapped under verified cryptography rules completely devoid of hidden variables.</p>
-            
-            <div class="padlock-vector-canvas">
-                <div class="padlock-base-body"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-block-section" style="text-align: center; background: radial-gradient(circle at 50% 100%, #240307 0%, #000 65%);">
-        <div class="section-headline" style="margin-bottom: 8px;">V-Boost is Your Participation</div>
-        <p class="brief-paragraph" style="margin-bottom: 26px;">Initialize your core terminal link connection structure instantly.</p>
-        <button class="action-btn-red" style="border-radius: 10px; padding: 15px; width: 100%; max-width: 300px;" onclick="triggerPopupView('loginPopupFrame')">Enter V-Boost</button>
-    </section>
-
-    <footer>
-        <div class="footer-brand-title">V-BOOST</div>
-        
-        <div class="footer-social-row">
-            <a href="#" class="footer-social-circle">T</a>
-            <a href="#" class="footer-social-circle">D</a>
-            <a href="#" class="footer-social-circle">X</a>
-        </div>
-
-        <div class="footer-nav-links">
-            <a href="#">About</a>
-            <a href="#">How it works</a>
-            <a href="#">Components</a>
-            <a href="#">Marketplace</a>
-            <a href="#">Benefits</a>
-        </div>
-
-        <p class="footer-copyright-note">© 2026 V-BOOST. All Rights Reserved.</p>
-        <p class="footer-copyright-note" style="opacity: 0.12; font-size: 10.5px;">Build Version 1.1 Authentic Core</p>
-    </footer>
-
-
-    <div id="drawerMenuNavigationOverlay" class="overlay-nav-menu-panel">
-        <div class="popup-close-trigger" style="top: 24px; right: 20px; color: white;" onclick="toggleNavigationMenuPanel(false)">✕</div>
-        <ul class="overlay-menu-items-list">
-            <li><a href="#" onclick="toggleNavigationMenuPanel(false)">About</a></li>
-            <li><a href="#" onclick="toggleNavigationMenuPanel(false)">How it works</a></li>
-            <li><a href="#" onclick="toggleNavigationMenuPanel(false)">Components</a></li>
-            <li><a href="#" onclick="toggleNavigationMenuPanel(false)">Marketplace</a></li>
-            <li><a href="#" onclick="toggleNavigationMenuPanel(false)">Benefits</a></li>
-        </ul>
-        <button class="action-btn-red" style="width: 180px;" onclick="toggleNavigationMenuPanel(false); triggerPopupView('signUpPopupFrame');">Join Us</button>
-    </div>
-
-    <div id="loginPopupFrame" class="popup-window-dimmer">
-        <div class="popup-frame-box">
-            <div class="popup-close-trigger" onclick="dismissPopupView('loginPopupFrame')">✕</div>
-            <div class="popup-header-title">Welcome to V-Boost</div>
-            <div class="popup-header-subtitle">Where your growth becomes digital capital</div>
-            
-            <form onsubmit="handleDemoActionInterceptor(event)">
-                <div class="form-input-block">
-                    <label>Email</label>
-                    <input type="email" class="form-field-element" placeholder="Enter email" required>
-                </div>
-                <div class="form-input-block">
-                    <label>Password</label>
-                    <input type="password" id="inputSecurityMaskA" class="form-field-element" placeholder="Enter password" required>
-                    <span class="field-visibility-mask-toggle" onclick="togglePasswordInputMaskDisplay('inputSecurityMaskA')">👁</span>
-                </div>
-                <a href="#" class="form-auxiliary-link">Forgot password?</a>
-                <button type="submit" class="action-btn-red" style="width:100%; border-radius:10px;">Log in</button>
-            </form>
-
-            <div class="form-switch-prompt-footer">
-                Do not have an account? <span onclick="transitionPopupViewContext('loginPopupFrame', 'signUpPopupFrame')">Sign up</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="signUpPopupFrame" class="popup-window-dimmer">
-        <div class="popup-frame-box">
-            <div class="popup-close-trigger" onclick="dismissPopupView('signUpPopupFrame')">✕</div>
-            <div class="popup-header-title">Create your V-Boost account</div>
-            <div class="popup-header-subtitle">Where your growth becomes digital capital</div>
-            
-            <form onsubmit="handleDemoActionInterceptor(event)">
-                <div class="form-input-block">
-                    <label>Email</label>
-                    <input type="email" class="form-field-element" placeholder="Email" required>
-                </div>
-                <div class="form-input-block">
-                    <label>Create password</label>
-                    <input type="password" id="inputSecurityMaskB" class="form-field-element" placeholder="Password" required>
-                    <span class="field-visibility-mask-toggle" onclick="togglePasswordInputMaskDisplay('inputSecurityMaskB')">👁</span>
-                </div>
-                <div class="form-input-block">
-                    <label>Confirm password</label>
-                    <input type="password" id="inputSecurityMaskC" class="form-field-element" placeholder="Password" required>
-                    <span class="field-visibility-mask-toggle" onclick="togglePasswordInputMaskDisplay('inputSecurityMaskC')">👁</span>
-                </div>
-
-                <ul class="pass-criteria-box">
-                    <li class="pass-criteria-row-item">8 characters</li>
-                    <li class="pass-criteria-row-item">One uppercase letter (A-Z)</li>
-                    <li class="pass-criteria-row-item">One lowercase letter (a-z)</li>
-                    <li class="pass-criteria-row-item">One number (0-9)</li>
-                </ul>
-
-                <div class="policy-checkbox-block">
-                    <input type="checkbox" id="userPolicyConsentCheck" required>
-                    <label for="userPolicyConsentCheck">I agree to the Terms of Use, Privacy Policy, and Risk Disclosure.</label>
-                </div>
-
-                <button type="submit" class="action-btn-red" style="width:100%; border-radius:10px;">Sign Up</button>
-            </form>
-
-            <div class="form-switch-prompt-footer">
-                Already have an account? <span onclick="transitionPopupViewContext('signUpPopupFrame', 'loginPopupFrame')">Log in</span>
-            </div>
-        </div>
-    </div>
-
-    <div id="supportPopupFrame" class="popup-window-dimmer">
-        <div class="popup-frame-box" style="max-width: 440px;">
-            <div class="popup-close-trigger" onclick="dismissPopupView('supportPopupFrame')">✕</div>
-            <div class="popup-header-title" style="text-align:left; font-size:20px;">Need any help?</div>
-            <div class="popup-header-subtitle" style="text-align:left; margin-bottom:18px;">What issues are you facing with the platform? Please describe it and send a request.</div>
-            
-            <form onsubmit="handleDemoActionInterceptor(event)">
-                <div class="form-input-block">
-                    <label>Email</label>
-                    <input type="email" class="form-field-element" value="johndoe@gmail.com" required>
-                </div>
-                
-                <div class="form-input-block">
-                    <label>Indicate the topic</label>
-                    <select class="form-field-element" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\"white\" height=\"20\" viewBox=\"0 0 24 24\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
-                        <option>Technical problem on the site</option>
-                        <option>I can't find a referral in the structure</option>
-                        <option>Incorrect display of income</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-
-                <div class="form-input-block">
-                    <label>Description</label>
-                    <textarea class="form-field-element" rows="4" style="resize:none;" placeholder="Problem description" maxlength="1000" required></textarea>
-                    <div style="text-align:right; font-size:11px; color:var(--text-dim-grey); margin-top:4px;">Minimum 50, maximum 1000 characters.</div>
-                </div>
-
-                <div class="form-input-block">
-                    <label>Attach files</label>
-                    <div class="drag-drop-zone-area" onclick="alert('File selector link layer initiated.')">
-                        <span style="font-size:20px; display:block; margin-bottom:4px;">↑</span>
-                        Drag and drop or <span style="color:var(--accent-red); font-weight:500;">Click to upload</span>
-                        <div style="font-size:11px; color:rgba(255,255,255,0.18); margin-top:5px;">JPG, PNG, PDF, LOG, TXT, MP4, MOV (up to 30 MB)</div>
-                    </div>
-                </div>
-
-                <button type="submit" class="action-btn-red" style="width:100%; border-radius:10px;">Submit Request</button>
-            </form>
-        </div>
-    </div>
-
-
-    <script>
-        // Modal views structural toggles
-        function triggerPopupView(frameId) {
-            const frame = document.getElementById(frameId);
-            if (frame) {
-                frame.classList.add('is-visible');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function dismissPopupView(frameId) {
-            const frame = document.getElementById(frameId);
-            if (frame) {
-                frame.classList.remove('is-visible');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function transitionPopupViewContext(exitFrameId, enteringFrameId) {
-            dismissPopupView(exitFrameId);
-            setTimeout(() => {
-                triggerPopupView(enteringFrameId);
-            }, 180);
-        }
-
-        // Full Header Canvas Layer Toggle Drawer Menu
-        function toggleNavigationMenuPanel(displayState) {
-            const blockPanel = document.getElementById('drawerMenuNavigationOverlay');
-            if (displayState) {
-                blockPanel.classList.add('is-active');
-                document.body.style.overflow = 'hidden';
-            } else {
-                blockPanel.classList.remove('is-active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Input standard dynamic masking characters (Show/Hide functionality)
-        function togglePasswordInputMaskDisplay(elementId) {
-            const inputNode = document.getElementById(elementId);
-            if (inputNode) {
-                inputNode.type = (inputNode.type === "password") ? "text" : "password";
-            }
-        }
-
-        // Standard event prevent interceptors
-        function handleDemoActionInterceptor(event) {
-            event.preventDefault();
-            alert("UI Interface Intercepted. Frontend matches 100% with requirements.");
-            document.querySelectorAll('.popup-window-dimmer').forEach(f => f.classList.remove('is-visible'));
-            document.body.style.overflow = 'auto';
-        }
-
-        // Dynamic close hook when selecting outer bound dimensions
-        window.onclick = function(event) {
-            if (event.target.classList.contains('popup-window-dimmer')) {
-                event.target.classList.remove('is-visible');
-                document.body.style.overflow = 'auto';
-            }
-        }
-    </script>
-</body>
-</html>
+            <p class="product-about-text" style="margin: 0;">Your positions remain autonomously mapped under verified cryptography rules 
